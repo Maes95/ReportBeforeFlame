@@ -21,37 +21,10 @@
   </div>
   <br>
 
-  <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Type
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><%=:report_type %>Interface</li>
-    <li><%=:report_type%>Feedback</li>
-    <li><%=:report_type%>Feedback</li>
-    <li><%=:report_type%>Feedback</li>
-  </ul>
-  </div>
-
   <div>
     <%= f.select :report_type, ['Interface', 'Feedback', 'Security', 'Other'] %>
   </div>
 
-
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Type<select name="report_type" id="report[type]">
-    </button>
-
-    <li><option value="Interface">Interface</option></li>
-    <li><option value="Feedback">Feedback</option></li>
-    <li><option value="Security">Security</option></li>
-    <li><option value="Other">Other</option></li>
-    </select>
-  </ul>
-
-  </div>
 
   <div class="form-group">
     <%= f.label :priority %><br>

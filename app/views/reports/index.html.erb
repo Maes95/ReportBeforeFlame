@@ -18,7 +18,10 @@
       <tbody>
         <% @reports.each do |report| %>
           <tr>
-            <td><%= link_to report.title, report %></td>
+            <td>
+              <!--<%= link_to report.title, report %>-->
+              <%= link_to report.title, report, class:"yellow" %>
+            </td>
             <td><%= report.report_type %></td>
             <td><% case report.priority
                when "High" %>

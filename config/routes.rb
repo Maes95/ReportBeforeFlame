@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   #root :to => "devise/sessions#new"
-  root :to => "reports#new"
+  root :to => "reports#index"
 
 
   devise_for :stakeholders, controllers: { registrations: 'registrations'}
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #resources :stakeholders
 
   resources :reports
-  
+
 
 
   get ':name/reports' => 'reports#index', as: 'stakeholder_reports'

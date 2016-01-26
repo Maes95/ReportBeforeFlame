@@ -12,7 +12,7 @@ body {
     margin-left: 20%;
     padding-bottom: 10%;
 
-    background: url(/assets/fondo2.jpg) no-repeat fixed center;
+    background: url(/assets/bg.jpg) no-repeat fixed center;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     background-size: cover;
@@ -21,16 +21,16 @@ body {
 
  }
 
-table {
+/**table {
       border-collapse: collapse;
       text-align: center;
-      width: 100%;
+      width: 60%;
       margin-top: 30px;
       margin-right: 10px;
       margin-bottom: 0px;
       margin-left: 0%;
       font: normal 16px/150% Arial, Helvetica, sans-serif;
-      background: #E0E0E0;
+      background: #ffffff;
       overflow: hidden;
       border: 3px solid #383838;
       -webkit-border-radius: 10px;
@@ -40,11 +40,26 @@ table {
 
 table td,
 table th { padding: 3px 10px; }
-table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #909090 ), color-stop(1, #B0B0B0 ) );background:-moz-linear-gradient( center top, #991821 5%, #80141C 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#991821', endColorstr='#80141C');background-color:#991821; color:#FFFFFF; font-size: 16px; font-weight: bold; border-left: 1px solid #505050 ; }
+table thead th {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #909090 ),
+  color-stop(1, #B0B0B0 ) );
+  background:-moz-linear-gradient( center top, #991821 5%, #80141C 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#991821', endColorstr='#80141C');
+  background-color:#991821; color:#FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  border-left: 1px solid #505050;
+ }
 table thead th:first-child { border: none; }
-table tbody td { color: #000099; border-left: 1px solid #505050 ;font-size: 14px; border-bottom: 1px solid #505050;font-weight: normal; }
-
-h1 {
+table tbody td {
+    color: #000099;
+    border-left: 1px solid #000000 ;
+    font-size: 14px;
+    border-bottom: 1px solid #000000;
+    font-weight: normal;
+}
+*/
+title {
     padding-top: 10px;
     padding-right: 0px;
     padding-bottom: 10px;
@@ -76,10 +91,11 @@ h1 {
     border:2px solid #B0B0B0;
     background:rgba(80,80,80,0.3);
 
-    float: left;
     width: 35%;
+    float: center;
 }
 
-.link{
-  text-align: center;
+
+.button{
+  //background:rgba(255,200,255,1.0);
 }

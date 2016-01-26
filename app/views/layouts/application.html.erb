@@ -5,16 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<!--
   <% flash.each do |key, value| %>
+  <div class="alert">
       <div class="alert alert-<%= key %> alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <%= value %>
       </div>
+  </div>
   <% end %>
-<div class="link">
+-->
+<div class="alert alert-info" role="alert">
   <% if current_stakeholder %>
     Welcome <%= current_stakeholder.email %> <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
   <% else %>
@@ -22,7 +28,8 @@
       <%= link_to 'SignUp', new_stakeholder_registration_path%>
   <% end %>
 </div>
-<%= yield %>
-
+<div class="report">
+  <%= yield %>
+</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
 
-
 <%= form_for(@report) do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
@@ -13,15 +12,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <div class="col-sm-0"><input  class="form-control" id="report_title" name="report[title]" type="text" placeholder="Enter title"/></div>
+    <br>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <textarea class="form-control" id="report_content" name="report[content]" rows="6" placeholder="Enter content of report"></textarea>
   </div>
-  <div class="field">
+  <br>
+
+  <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Type
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><%=:report_type %>Interface</li>
+    <li><%=:report_type%>Feedback</li>
+    <li><%=:report_type%>Feedback</li>
+    <li><%=:report_type%>Feedback</li>
+  </ul>
+  </div>
+
+  <div>
+    <%= f.select :report_type, ['Interface', 'Feedback', 'Security', 'Other'] %>
+  </div>
+
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Type<select name="report_type" id="report[type]">
+    </button>
+
+    <li><option value="Interface">Interface</option></li>
+    <li><option value="Feedback">Feedback</option></li>
+    <li><option value="Security">Security</option></li>
+    <li><option value="Other">Other</option></li>
+    </select>
+  </ul>
+
+  </div>
+
+  <div class="form-group">
     <%= f.label :priority %><br>
     <%= f.radio_button :priority, 'Low' %>
     <%= f.label "Low" %><br>
@@ -30,12 +62,9 @@
     <%= f.radio_button :priority, 'High' %>
     <%= f.label "High" %><br>
   </div>
-  <div class="field">
-    <%= f.label :report_type %>
-    <%= f.select :report_type, ['Interface', 'Feedback', 'Security', 'Other'] %>
-  </div>
+
 
   <div class="actions">
-    <%= f.submit %>
+  <input type="submit" class="btn btn-info" value="Send report">
   </div>
 <% end %>

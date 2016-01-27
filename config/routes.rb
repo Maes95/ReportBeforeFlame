@@ -6,17 +6,18 @@ Rails.application.routes.draw do
   #root :to => "reports#index"
   root :to => "main#index"
 
-  devise_for :stakeholders, controllers: { registrations: 'registrations', sessions: 'sessions'}
-
   #resources :stakeholders
+
+  devise_for :stakeholders, controllers: { registrations: 'registrations', sessions: 'sessions'}
+  get '/stakeholders/:id', to: 'stakeholders#show', as: 'stakeholder'
+  get '/stakeholders', to: 'stakeholders#index'
+
+
 
   resources :reports
 
 
 
-
-
-  get ':name/reports' => 'reports#index', as: 'stakeholder_reports'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,4 @@
-  <div class="report">
+
 <p id="notice"><%= notice %></p>
 
 <div class="panel panel-default">
@@ -31,7 +31,7 @@
             <% when "Low" %>
             <span class="label label-success">Low</span>
             <% end %></td>
-            <td><%= report.stakeholder.name%></td>
+            <td><%= link_to report.stakeholder.name, report.stakeholder %></td>
           </tr>
         <% end %>
       </tbody>
@@ -41,4 +41,3 @@
 <%= button_to "Add report", new_report_path, :id => "open-contacts-dialog-btn",
       :class => "btn btn-info", :method => :get %>
 <br>
-  </div>

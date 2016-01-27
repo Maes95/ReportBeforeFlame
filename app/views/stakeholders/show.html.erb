@@ -1,13 +1,7 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
-  <%= @stakeholder.name %>
-</p>
+  <h2><strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></strong></h2>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @stakeholder.lastname %>
 </p>
 
 <p>
@@ -15,5 +9,31 @@
   <%= @stakeholder.email %>
 </p>
 
-<%= link_to 'Edit', edit_stakeholder_path(@stakeholder) %> |
-<%= link_to 'Back', stakeholders_path %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Priority</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stakeholder.reports.each do |report| %>
+      <tr>
+        <td>
+          <%= link_to report.title, report, class:"yellow" %>
+        </td>
+        <td><%= report.report_type %></td>
+        <td><% case report.priority
+           when "High" %>
+        <span class="label label-danger">High</span>
+        <% when "Medium" %>
+        <span class="label label-warning">Medium</span>
+        <% when "Low" %>
+        <span class="label label-success">Low</span>
+        <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

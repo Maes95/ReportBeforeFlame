@@ -1,7 +1,13 @@
 <% content_for :home do %>
   <div class="alert alert-info" class="jumbotron">
   <p><img src="assets/logo.png"></p>
-  <a class="btn btn-primary btn-lg" href="/stakeholders/sign_in" role="button">Sign in</a>
-  <a class="btn btn-primary btn-lg" href="/stakeholders/sign_up" role="button">Sign up</a>
+  <% if current_stakeholder %>
+
+  <% else %>
+    <a class="btn btn-primary btn-lg" href="/stakeholders/sign_in" role="button">Sign in</a>
+    <a class="btn btn-primary btn-lg" href="/stakeholders/sign_up" role="button">Sign up</a>
+  <% end %>
+
   </div>
+
 <% end %>

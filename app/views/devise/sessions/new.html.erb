@@ -1,36 +1,17 @@
 <% content_for :new_session do %>
+
 <div class="report">
 
-<nav class="alert alert-default" role="alert">
-  <form class="form-inline">
-    <div class="form-group">
-      <label class="sr-only" for="exampleInputEmail3">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <label class="sr-only" for="exampleInputPassword3">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-    </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"> Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-default">Sign in</button>
-  </form>
-</nav>
-
-
-<h2>Log in X</h2>
+<h2>Log in </h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true,  class:"form-control", placeholder:"Enter your email" %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off",  class:"form-control", placeholder:"Enter your password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -41,8 +22,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <button type="submit" class="btn btn-info">Sign in</button>
   </div>
+  <!--<button class="btn btn-default" href="javascript:history.back()">Back</button>-->
 <% end %>
+<%= render "devise/shared/links" %>
 </div>
 <% end %>

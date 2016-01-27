@@ -10,15 +10,19 @@
 
 
 <% if current_stakeholder %>
-<div class="alert alert-info" role="alert">
-  Welcome <%= current_stakeholder.name %> - <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
-</div>
-  <div class="report">
-    <%= yield %>
-  </div>
+  <% if controller_name != 'main' %>
+    <div class="alert alert-info" role="alert" id="fixed">
+
+    Connected as <%= current_stakeholder.name %> - <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
+    </div>
+  <% end %>
+  <%= yield :home %>
+  <%= yield %>
+
 <% else %>
-        <%= yield :new_session %>
         <%= yield :home %>
+        <%= yield :new_session %>
+        <%= yield :new_user %>
 <% end %>
 
 </body>

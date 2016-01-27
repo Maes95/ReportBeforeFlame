@@ -1,4 +1,5 @@
-
+<% content_for :new_user do %>
+<div class="report">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -13,12 +14,12 @@
 
   <div class="form-group">
     <%= f.label :lastname %><br />
-    <%= f.text_field :lastname%>
+    <%= f.text_field :lastname, class:"form-control", placeholder:"Enter Lastame" %>
   </div>
 
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"email@example.com" %>
   </div>
 
   <div class="field">
@@ -26,17 +27,19 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Enter your password"%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Confirm your password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <button type="submit" class="btn btn-info">Sign up</button>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+<% end %>
+</div>

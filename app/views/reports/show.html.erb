@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @report.title %></div>
+  <h3><strong><div class="panel-heading"><%= @report.id %>#<%= @report.title %></div></strong></h3>
   <p>
     <div class="panel-body">
       <% case @report.priority
@@ -13,16 +13,18 @@
       <span class="label label-success">Low</span>
       <% end %>
       <span class="label label-info"><%= @report.report_type %></span>
+      <kbd><span  class="date"><%= @report.created_at%></span></kbd>
   </p>
-    <pre><%= safe_join(@report.content.split("\r\n"), "<br />".html_safe) %></pre></br>
+    <pre wrap="soft"><%= safe_join(@report.content.split("\r\n"), "<br />".html_safe) %></pre>
     <strong>Posted By:</strong>
-    <%= @report.stakeholder.name %>
+    <%= @report.stakeholder.name %> <%= @report.stakeholder.lastname %>
 
   </div>
 </div>
+</br>
 
-
-
+<% if current_stakeholder.id ==  @report.stakeholder_id%>
 <%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Destroy', @report, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back to Reports', reports_path %>

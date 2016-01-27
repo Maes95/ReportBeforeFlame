@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'main/index'
+
   #root :to => "devise/sessions#new"
-  root :to => "reports#index"
+  #root :to => "reports#index"
+  root :to => "main#index"
 
-
-  devise_for :stakeholders, controllers: { registrations: 'registrations'}
+  devise_for :stakeholders, controllers: { registrations: 'registrations', sessions: 'sessions'}
 
   #resources :stakeholders
 
   resources :reports
+
+
 
 
 

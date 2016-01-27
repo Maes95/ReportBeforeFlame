@@ -1,0 +1,21 @@
+<!--
+  <% flash.each do |key, value| %>
+  <div class="alert">
+      <div class="alert alert-<%= key %> alert-dismissable">
+          <%= value %>
+      </div>
+  </div>
+  <% end %>
+
+<div class="alert alert-info" role="alert">
+  <% if current_stakeholder %>
+    Welcome <%= current_stakeholder.name %> - <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
+  <% else %>
+      <%= link_to 'Login', new_stakeholder_session_path %>
+      <%= link_to 'SignUp', new_stakeholder_registration_path%>
+  <% end %>
+</div>
+<div class="report">
+  <%= yield %>
+</div>
+-->

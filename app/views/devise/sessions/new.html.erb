@@ -1,0 +1,48 @@
+<% content_for :new_session do %>
+<div class="report">
+
+<nav class="alert alert-default" role="alert">
+  <form class="form-inline">
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputEmail3">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputPassword3">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Remember me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Sign in</button>
+  </form>
+</nav>
+
+
+<h2>Log in X</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+</div>
+<% end %>

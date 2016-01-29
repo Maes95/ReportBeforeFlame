@@ -41,21 +41,38 @@ div {
 
 #notice {
   color: green;
+  text-align: center;
 }
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  //background-color: red;
   display: table;
+  color:red;
+  //-webkit-border-radius: 5px;
+  //-moz-border-radius: 5px;
+
+  margin-bottom: 0px;
+  //border-radius: 10px;
+  //border:2px solid #B0B0B0;
+  //background-color:rgba(255,0,0,0.8);
+  .form-group{
+      background-color: red;
+  }
+
+
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  width: 90%;
+  border: 2px solid #c00;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
 
   h2 {
     text-align: left;
@@ -69,6 +86,7 @@ div {
   }
 
   ul li {
+    padding-top: 5px;
     font-size: 12px;
     list-style: square;
   }

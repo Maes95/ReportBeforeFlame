@@ -68,6 +68,10 @@
 
     }
 
+    footer{
+        text-align: center;
+    }
+
     .thumbnail {
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
@@ -78,6 +82,8 @@
       padding-right: 15px;
       padding-bottom: 10px;
       padding-left: 15px;
+
+      margin-bottom: 10px;
     }
 
     .pane{
@@ -89,4 +95,5 @@
       min-height: 1px;
       padding-left: 0.9375rem;
       padding-right: 0.9375rem;
+
     }

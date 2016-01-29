@@ -27,6 +27,8 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'pg'
 
 gem 'bootstrap'
+gem 'bootstrap-glyphicons'
+
 gem 'sprockets-rails'
 
 source 'https://rails-assets.org' do

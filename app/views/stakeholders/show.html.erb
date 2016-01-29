@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <h2><strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></strong></h2>
+  <h3><strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></strong></h2t>
 
 </p>
 
@@ -8,32 +8,31 @@
   <strong>Email:</strong>
   <%= @stakeholder.email %>
 </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= @stakeholder.name %>'s reports</th>
+          <th>Type</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Type</th>
-      <th>Priority</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stakeholder.reports.each do |report| %>
-      <tr>
-        <td>
-          <%= link_to report.title, report, class:"yellow" %>
-        </td>
-        <td><%= report.report_type %></td>
-        <td><% case report.priority
-           when "High" %>
-        <span class="label label-danger">High</span>
-        <% when "Medium" %>
-        <span class="label label-warning">Medium</span>
-        <% when "Low" %>
-        <span class="label label-success">Low</span>
-        <% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @stakeholder.reports.each do |report| %>
+          <tr>
+            <td>
+              <%= link_to report.title, report, class:"yellow" %>
+            </td>
+            <td><%= report.report_type %></td>
+            <td><% case report.priority
+               when "High" %>
+            <span class="label label-danger">High</span>
+            <% when "Medium" %>
+            <span class="label label-warning">Medium</span>
+            <% when "Low" %>
+            <span class="label label-success">Low</span>
+            <% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>

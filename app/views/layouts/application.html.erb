@@ -12,7 +12,6 @@
 <% if current_stakeholder %>
   <% if controller_name != 'main' %>
     <div class="alert alert-info" role="alert" id="fixed">
-
     Connected as <%= link_to current_stakeholder.name, current_stakeholder %> - <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
     </div>
   <% end %>

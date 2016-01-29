@@ -13,7 +13,16 @@
       <% when "Low" %>
       <span class="label label-success">Low</span>
       <% end %>
-      <span class="label label-info"><%= @report.report_type %></span>
+      <% case @report.report_type
+      when "Interface" %>
+      <span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span>
+      <% when "Security" %>
+      <span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span>
+      <% when "Feedback" %>
+      <span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span>
+      <% when "Other" %>
+      <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
+      <% end %>
       <kbd><span  class="date"><%= @report.created_at%></span></kbd>
   </p>
     <pre wrap="soft"><%= safe_join(@report.content.split("\r\n"), "<br />".html_safe) %></pre>

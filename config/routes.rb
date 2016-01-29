@@ -2,12 +2,8 @@ Rails.application.routes.draw do
 
   get 'main/index'
 
-  #root :to => "devise/sessions#new"
-  #root :to => "reports#index"
   root :to => "main#index"
-
-  #resources :stakeholders
-
+  
   devise_for :stakeholders, controllers: { registrations: 'registrations', sessions: 'sessions'}
   get '/stakeholders/:id', to: 'stakeholders#show', as: 'stakeholder'
   get '/stakeholders', to: 'stakeholders#index'

@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <h3><strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></strong></h2t>
+  <h3><strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></strong></h3>
 
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @stakeholder.email %>
+  <h6><% if @stakeholder.role == "User" %>
+    <span class="label label-default"><span class="glyphicon glyphicon-user" ></span> User</span>
+  <% else %>
+    <span class="label label-success"><span class="glyphicon glyphicon-wrench" ></span> Developer</span>
+  <% end %>
+
+  <strong>Email:</strong> <%= @stakeholder.email %>
+  </h6>
 </p>
     <table class="table table-hover">
       <thead>
@@ -23,7 +29,18 @@
             <td>
               <%= link_to report.title, report, class:"yellow" %>
             </td>
-            <td><%= report.report_type %></td>
+            <td>
+              <% case report.report_type
+              when "Interface" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span></h6>
+              <% when "Security" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span></h6>
+              <% when "Feedback" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span></h6>
+              <% when "Other" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span></h6>
+              <% end %>
+            </td>
             <td><% case report.priority
                when "High" %>
             <span class="label label-danger">High</span>

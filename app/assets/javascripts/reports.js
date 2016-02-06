@@ -2,7 +2,7 @@ function cuenta(){
   var s = $('#report_content').val();
   var count = 0;
   if (s != ""){count = s.match(/\w+/g).length;}
-  console.log(count);
+  //console.log(count);
   $('#report_count').val(count);
 
   $('#label_count').removeClass('label-danger');

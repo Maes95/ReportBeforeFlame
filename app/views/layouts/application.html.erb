@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ReportBeforeFlame</title>
+  <title>ReportBeforeBlame</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="animate.min.css">
 </head>
 <body>
-
+<div class="col-md-2 col-xs-0"></div>
 
 <% if current_stakeholder %>
-  <% if controller_name != 'main' %>
-    <div class="alert alert-info" role="alert" id="fixed">
-    Connected as <%= link_to current_stakeholder.name, current_stakeholder %> - <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
+
+    <% if controller_name != 'main' %>
+  </BR>
+  <div class="col-md-2"></div>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-2 col-xs-0"></div>
+        <div class="alert alert-info col-md-8 col-xs-12" role="alert">
+        Connected as <%= link_to current_stakeholder.name, current_stakeholder %> - <%= link_to 'Logout', destroy_stakeholder_session_path, method: :delete %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-xs-0"></div>
+        <div class="main_pane col-md-8 col-xs-12">
+          <%= yield %>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <%= yield :home %>
-  <% if controller_name != 'main' %>
-    <div class="report">
-      <%= yield %>
-    </div>
-  <% end %>
+    <% end %>
+    <%= yield :home %>
+
 <% else %>
+
         <%= yield :home %>
         <%= yield :new_session %>
         <%= yield :new_user %>
-<% end %>
 
+<% end %>
+<div class="col-md-2 col-xs-0"></div>
 </body>
 
 </html>

@@ -1,5 +1,23 @@
 <% content_for :new_user do %>
-<div class="report">
+
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('#stakeholder_role_dev').click(
+        function enable(){
+          $('#stakeholder_role').attr('disabled', false);
+        }
+    );
+
+    $('#stakeholder_role_user').click(
+        function disable(){
+          $('#stakeholder_role').attr('disabled', true);
+        }
+    );
+  });
+</script>
+<div class="col-md-2 col-xs-0"></div>
+<div class="main_pane col-md-4 col-xs-12">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -34,6 +52,20 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Confirm your password" %>
   </div>
+
+  <%= f.label :role %><br>
+  <input name="radiobutton" type="radio" id="stakeholder_role_user" checked="checked"/>
+  <span class="label label-default"><span class="glyphicon glyphicon-user" ></span> User</span>
+  <input name="radiobutton" type="radio" id="stakeholder_role_dev"/>
+  <span class="label label-default"><span class="glyphicon glyphicon-wrench" ></span> Developer</span>
+<br>
+<br>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon">Developer Key</span>
+    <input type="text" class="form-control" id="stakeholder_role" name="stakeholder[role]" aria-describedby="basic-addon3" disabled="disabled" >
+  </div>
+  <br>
+
 
   <div class="actions">
     <button type="submit" class="btn btn-info">Sign up</button>

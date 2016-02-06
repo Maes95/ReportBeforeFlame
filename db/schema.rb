@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127181429) do
+ActiveRecord::Schema.define(version: 20160202184213) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160127181429) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "role"
   end
 
   add_index "stakeholders", ["email"], name: "index_stakeholders_on_email", unique: true

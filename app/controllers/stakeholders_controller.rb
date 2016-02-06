@@ -74,6 +74,6 @@ before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stakeholder_params
-      params.require(:stakeholder).permit(:name, :lastname, :email)
+      params.require(:stakeholder).permit(:name, :lastname, :email, :role)
     end
 end

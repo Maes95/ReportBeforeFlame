@@ -1,55 +1,71 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <h3><strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></strong></h3>
 
-</p>
+    <div class="panel panel-default">
 
-<p>
-  <h6><% if @stakeholder.role == "User" %>
-    <span class="label label-default"><span class="glyphicon glyphicon-user" ></span> User</span>
-  <% else %>
-    <span class="label label-success"><span class="glyphicon glyphicon-wrench" ></span> Developer</span>
-  <% end %>
+      <div class="panel-heading"><h3><% if @stakeholder.role == "User" %>
+        <span class="label label-default"><span class="glyphicon glyphicon-user" ></span> User</span>
+      <% else %>
+        <span class="label label-success"><span class="glyphicon glyphicon-wrench" ></span> Developer</span>
+      <% end %><strong><%= @stakeholder.name %> profile</h3></strong>
+        <h5>
+          <p><strong>Full-Name:</strong><%= @stakeholder.name %> <%= @stakeholder.lastname %></p>
+          <p><strong>Email:</strong> <%= @stakeholder.email %></p>
+        </h5>
+      </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><%= @stakeholder.name %>'s reports</th>
+              <th>Priority</th>
+              <th>Type</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%  @stakeholder.reports.each do |report| %>
+              <tr>
+                <td>
+                  <%= link_to report.title, report, class:"yellow" %>
+                </td>
+                <td><% case report.priority
+                   when "High" %>
+                <span class="label label-danger">High</span>
+                <% when "Medium" %>
+                <span class="label label-warning">Medium</span>
+                <% when "Low" %>
+                <span class="label label-success">Low</span>
+                <% end %></td>
+                <td>
+                  <% case report.report_type
+                  when "Interface" %>
+                  <span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span>
+                  <% when "Security" %>
+                  <span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span>
+                  <% when "Feedback" %>
+                  <span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span>
+                  <% when "Other" %>
+                  <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
+                  <% end %>
+                </td>
+                <td>
+                  <% if report.answers.last == nil %>
+                    <span class="label label-default">On hold</span>
+                  <% else %>
+                      <% case report.answers.last.answer_type
+                      when "FIXED" %>
+                      <span class="label label-success">Fixed</span>
+                      <% when "CANT FIX IT" %>
+                      <span class="label label-danger">Can't fix it</span>
+                      <% when "NO FIX" %>
+                      <span class="label label-warning">No fix yet</span>
+                      <% when 'NOT NEED' %>
+                      <span class="label label-info">Doesn't need fix</span><br>
+                      <% end %>
+                  <% end %>
 
-  <strong>Email:</strong> <%= @stakeholder.email %>
-  </h6>
-</p>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th><%= @stakeholder.name %>'s reports</th>
-          <th>Type</th>
-          <th>Priority</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @stakeholder.reports.each do |report| %>
-          <tr>
-            <td>
-              <%= link_to report.title, report, class:"yellow" %>
-            </td>
-            <td>
-              <% case report.report_type
-              when "Interface" %>
-              <h6><span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span></h6>
-              <% when "Security" %>
-              <h6><span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span></h6>
-              <% when "Feedback" %>
-              <h6><span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span></h6>
-              <% when "Other" %>
-              <h6><span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span></h6>
-              <% end %>
-            </td>
-            <td><% case report.priority
-               when "High" %>
-            <span class="label label-danger">High</span>
-            <% when "Medium" %>
-            <span class="label label-warning">Medium</span>
-            <% when "Low" %>
-            <span class="label label-success">Low</span>
-            <% end %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>

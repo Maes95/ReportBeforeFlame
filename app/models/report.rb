@@ -1,5 +1,6 @@
 class Report < ActiveRecord::Base
   belongs_to :stakeholder
+  has_many :answers
 
   validates :content, length: {
     minimum: 15,

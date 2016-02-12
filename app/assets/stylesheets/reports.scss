@@ -38,6 +38,23 @@ title {
 
 }
 
+#ReportTable{
+  display: none;
+}
+
+.drop-li{
+  cursor: pointer;
+
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap
+}
+
+
 .form {
     padding-top: 10px;
     padding-right: 5px;
@@ -60,12 +77,125 @@ title {
     float: center;
 }
 
-
-.button{
-  //background:rgba(255,200,255,1.0);
-}
-
 .date{
   text-align: right;
   font-size: 12px;
 }
+
+// NUEVO FLIPCARD
+
+.scene3D {
+    display: block;
+    float: left;
+    margin: 10px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /*perspective*/
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+    -ms-perspective: 500px;
+    -o-perspective: 500px;
+    perspective: 500px;
+}
+.flip div {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /*backface-visibility*/
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#Oculta {
+    padding-top: 10%;
+    color: #000;
+    //background: #FFF;
+
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    /*transform*/
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+#Visible {
+    padding-top: 10px;
+    color: #555;
+}
+
+
+.flip div{
+    text-shadow: 0 0 1px .111;
+    text-align: center;
+}
+
+.flip {
+    width: 200px;
+    height: 100px;
+    /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /*box-shadow*/
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    // -webkit-box-shadow: 0 0 15px rgba(0,0,0,1.0);
+    // -moz-box-shadow: 0 0 15px rgba(0,0,0,1.0);
+    // box-shadow: 0 0 15px rgba(0,0,0,1.0);
+    /*transform*/
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    -o-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /*transition*/
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 1s;
+    /*transform-style*/
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    cursor: pointer;
+
+}
+.scene3D:hover .flip {
+    /*transform*/
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+}
+
+.Low {
+  background: rgba(92,184,92,0.3);
+}
+.High {
+  background: rgba(217,83,79,0.3);
+}
+.Medium {
+  background: rgba(240,173,78,0.3);
+}
+
+// MAS FLIPCARDS

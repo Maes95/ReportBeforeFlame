@@ -1,0 +1,70 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+
+  <div class="panel-heading"><h2>List of Reports</h2></div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Priority</th>
+          <th>Stakeholder</th>
+          <th>Type</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr>
+            <td>
+              <%= link_to report.title, report, class:"yellow" %>
+            </td>
+            <td><% case report.priority
+               when "High" %>
+            <h7><span class="label label-danger">High</span></h7>
+            <% when "Medium" %>
+            <h7><span class="label label-warning">Medium</span></h7>
+            <% when "Low" %>
+            <h7><span class="label label-success">Low</span></h7>
+            <% end %></td>
+            <td><%= link_to report.stakeholder.name, report.stakeholder %></td>
+            <td>
+              <% case report.report_type
+              when "Interface" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span></h6>
+              <% when "Security" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span></h6>
+              <% when "Feedback" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span></h6>
+              <% when "Other" %>
+              <h6><span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span></h6>
+              <% end %>
+            </td>
+            <td>
+              <% if report.answers.last == nil %>
+                <span class="label label-default">On hold</span>
+              <% else %>
+                  <% case report.answers.last.answer_type
+                  when "FIXED" %>
+                  <span class="label label-success">Fixed</span>
+                  <% when "CANT FIX IT" %>
+                  <span class="label label-danger">Can't fix it</span>
+                  <% when "NO FIX" %>
+                  <span class="label label-warning">No fix yet</span>
+                  <% when 'NOT NEED' %>
+                  <span class="label label-info">Doesn't need fix</span><br>
+                  <% end %>
+              <% end %>
+
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+
+<%= button_to "Add report", new_report_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-info", :method => :get %>
+<br>

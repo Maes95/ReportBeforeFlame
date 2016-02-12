@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202184213) do
+ActiveRecord::Schema.define(version: 20160209182858) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "stakeholder_id"
+    t.integer  "report_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "answer_type"
+  end
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"

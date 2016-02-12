@@ -1,8 +1,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="panel panel-default">
   <h3><strong><div class="panel-heading"><%= @report.id %>#<%= @report.title %></div></strong></h3>
+
   <p>
     <div class="panel-body">
       <% case @report.priority
@@ -23,18 +23,44 @@
       <% when "Other" %>
       <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
       <% end %>
-      <kbd><span  class="date"><%= @report.created_at%></span></kbd>
+
   </p>
-    <pre wrap="soft"><%= safe_join(@report.content.split("\r\n"), "<br />".html_safe) %></pre>
-    <strong>Posted By:</strong>
-    <%= @report.stakeholder.name %> <%= @report.stakeholder.lastname %>
+      <kbd><%= @report.stakeholder.name %> <%= @report.stakeholder.lastname %></span></kbd>
+      <pre wrap="soft"><%= safe_join(@report.content.split("\r\n"), "<br />".html_safe) %>
+      <div align=right><span class="label label-default"><span  class="date" ><%= @report.created_at%></span></span></div></pre>
+
+    <ul class="list-group">
+      <% @report.answers.each do |answer| %>
+      <li class="list-group-item">
+        <h6><span class="label label-default"><%= answer.stakeholder.name %></span>
+          <% case answer.answer_type
+          when "FIXED" %>
+          <span class="label label-success">Fixed</span>
+          <% when "CANT FIX IT" %>
+          <span class="label label-danger">Can't fix it</span>
+          <% when "NO FIX" %>
+          <span class="label label-warning">No fix yet</span>
+          <% when 'NOT NEED' %>
+          <span class="label label-info">Doesn't need fix</span><br>
+          <% end %>
+        </h6>
+        <pre wrap="soft"><%= safe_join(answer.content.split("\r\n"), "<br />".html_safe) %></pre>
+
+      </li>
+      <% end %>
+    </ul>
+
+
+    <% if current_stakeholder.role == "Developer" %>
+      <%= render 'form_answer' %>
+    <% end %>
+
 
   </div>
+  </br>
+  <% if current_stakeholder.id ==  @report.stakeholder_id%>
+  <%= link_to 'Edit', edit_report_path(@report) %> |
+  <%= link_to 'Destroy', @report, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+  <%= link_to 'Back to Reports', reports_path %>
 </div>
-</br>
-
-<% if current_stakeholder.id ==  @report.stakeholder_id%>
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Destroy', @report, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<% end %>
-<%= link_to 'Back to Reports', reports_path %>

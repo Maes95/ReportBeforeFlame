@@ -10,6 +10,7 @@ before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
   # GET /stakeholders/1
   # GET /stakeholders/1.json
   def show
+
   end
 
   # GET /stakeholders/new
@@ -64,12 +65,7 @@ before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stakeholder
-      # if :id.is_a? Integer
          @stakeholder = Stakeholder.find(params[:id])
-      # else
-      #   session.destroy
-      #   redirect_to root_path
-      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

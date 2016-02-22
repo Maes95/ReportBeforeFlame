@@ -98,7 +98,7 @@
         <div class="col-md-12 panel-body" id="cards">
           <% @stakeholder.reports.each do |report| %>
           <div class="scene3D <%= report.priority %>-s <%= report.report_type %>-s">
-            <div class="flip" onclick="location.href='reports/<%= report.id %>'">
+            <div class="flip" onclick="location.href='/reports/<%= report.id %>'">
               <div id="Oculta"><!-- OCULTA -->
                     <p>
                       <% case report.report_type

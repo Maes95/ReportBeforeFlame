@@ -1,15 +1,11 @@
 class ReportsController < ApplicationController
+  respond_to :html, :json
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   # GET /reports
   # GET /reports.json
   def index
-    if params[:name]
-      @stakeholder = Stakeholder.where(name: params[:name]).first
-      @reports = @stakeholder.reports
-    else
       @reports = Report.all
-    end
   end
 
   # GET /reports/1

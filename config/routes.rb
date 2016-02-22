@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   get '/stakeholders/:id', to: 'stakeholders#show', as: 'stakeholder'
   get '/stakeholders', to: 'stakeholders#index'
 
-
-
   resources :reports do
     resources :answers
   end

@@ -1,102 +1,63 @@
 
-<p id="notice"><%= notice %></p>
+<p></p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
 
-<div class="panel panel-default">
+      <div class="panel-heading">
+          <div class="btn-group" role="group" >
+            <input class="btn btn-info" type="submit" value="Add report" onClick=" window.location.href='<%= new_report_path %>' ">
+            <button type="button" id="listView" class="btn btn-default" onClick=listView()>List view</button>
+            <button type="button" id="cardView" class="btn btn-default" onClick=cardView()>Card view</button>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter <i class="fa fa-caret-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Priority</li>
+                <li class="drop-li" style="color:#3c763d" onClick=reportFilter('Low')>Low</li>
+                <li class="drop-li" style="color:#8a6d3b" onClick=reportFilter('Medium')>Medium</li>
+                <li class="drop-li" style="color:#a94442" onClick=reportFilter('High')>High</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Type</li>
+                <li class="drop-li" onClick=reportFilter('Interface')>Interface</li>
+                <li class="drop-li" onClick=reportFilter('Security')>Security</li>
+                <li class="drop-li" onClick=reportFilter('Feedback')>Feedback</li>
+                <li class="drop-li" onClick=reportFilter('Other')>Other</li>
+              </ul>
+            </div>
 
-  <div class="panel-heading"><h2>List of Reports</h2>
-      <div class="btn-group" role="group" >
-        <input class="btn btn-info" type="submit" value="Add report" onClick=" window.location.href='<%= new_report_path %>' ">
-        <button type="button" id="listView" class="btn btn-default" onClick=listView()>List view</button>
-        <button type="button" id="cardView" class="btn btn-default" onClick=cardView()>Card view</button>
-
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Filter
-          </button>
-          <ul class="dropdown-menu">
-            <li class="dropdown-header">Priority</li>
-            <li class="drop-li" style="color:#3c763d" onClick=reportFilter('Low')>Low</li>
-            <li class="drop-li" style="color:#8a6d3b" onClick=reportFilter('Medium')>Medium</li>
-            <li class="drop-li" style="color:#a94442" onClick=reportFilter('High')>High</li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Type</li>
-            <li class="drop-li" onClick=reportFilter('Interface')>Interface</li>
-            <li class="drop-li" onClick=reportFilter('Security')>Security</li>
-            <li class="drop-li" onClick=reportFilter('Feedback')>Feedback</li>
-            <li class="drop-li" onClick=reportFilter('Other')>Other</li>
-          </ul>
-        </div>
-
+          </div>
       </div>
-  </div>
 
+      <div class="panel-body">
 
-
-    <table id="ReportTable" class="table table-hover">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Priority</th>
-          <th>Stakeholder</th>
-          <th>Type</th>
-          <th>State</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @reports.each do |report| %>
-          <tr class="<%= report.priority %>-s <%= report.report_type %>-s">
-            <td>
-              <%= link_to report.title, report, class:"yellow" %>
-            </td>
-            <td><% case report.priority
-               when "High" %>
-            <span class="label label-danger">High</span>
-            <% when "Medium" %>
-            <span class="label label-warning">Medium</span>
-            <% when "Low" %>
-            <span class="label label-success">Low</span>
-            <% end %></td>
-            <td><%= link_to report.stakeholder.name, report.stakeholder %></td>
-            <td>
-              <% case report.report_type
-              when "Interface" %>
-              <span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span>
-              <% when "Security" %>
-              <span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span>
-              <% when "Feedback" %>
-              <span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span>
-              <% when "Other" %>
-              <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
-              <% end %>
-            </td>
-            <td>
-              <% if report.answers.last == nil %>
-                <span class="label label-default">On hold</span>
-              <% else %>
-                  <% case report.answers.last.answer_type
-                  when "FIXED" %>
-                  <span class="label label-success">Fixed</span>
-                  <% when "CANT FIX IT" %>
-                  <span class="label label-danger">Can't fix it</span>
-                  <% when "NO FIX" %>
-                  <span class="label label-warning">No fix yet</span>
-                  <% when 'NOT NEED' %>
-                  <span class="label label-info">Doesn't need fix</span><br>
-                  <% end %>
-              <% end %>
-
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <div class="col-md-12 panel-body" id="cards">
-      <% @reports.each do |report| %>
-      <div class="scene3D <%= report.priority %>-s <%= report.report_type %>-s">
-        <div class="flip" onclick="location.href='reports/<%= report.id %>'">
-          <div id="Oculta"><!-- OCULTA -->
-                <p>
+        <table id="ReportTable" class="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Priority</th>
+              <th>Author</th>
+              <th>Type</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reports.each do |report| %>
+              <tr class="<%= report.priority %>-s <%= report.report_type %>-s">
+                <td>
+                  <%= link_to report.title, report, class:"yellow" %>
+                </td>
+                <td><% case report.priority
+                   when "High" %>
+                <span class="label label-danger">High</span>
+                <% when "Medium" %>
+                <span class="label label-warning">Medium</span>
+                <% when "Low" %>
+                <span class="label label-success">Low</span>
+                <% end %></td>
+                <td><%= link_to report.stakeholder.name, report.stakeholder %></td>
+                <td>
                   <% case report.report_type
                   when "Interface" %>
                   <span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span>
@@ -107,9 +68,68 @@
                   <% when "Other" %>
                   <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
                   <% end %>
+                </td>
+                <td>
                   <% if report.answers.last == nil %>
                     <span class="label label-default">On hold</span>
                   <% else %>
+                      <% case report.answers.last.answer_type
+                      when "FIXED" %>
+                      <span class="label label-success">Fixed</span>
+                      <% when "CANT FIX IT" %>
+                      <span class="label label-danger">Can't fix it</span>
+                      <% when "NO FIX" %>
+                      <span class="label label-warning">No fix yet</span>
+                      <% when 'NOT NEED' %>
+                      <span class="label label-info">Doesn't need fix</span><br>
+                      <% end %>
+                  <% end %>
+
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div id="cards">
+          <% @reports.each do |report| %>
+          <div class="scene3D <%= report.priority %>-s <%= report.report_type %>-s">
+            <div class="flip" onclick="location.href='reports/<%= report.id %>'">
+              <div id="Oculta"><!-- OCULTA -->
+                    <p>
+                      <% case report.report_type
+                      when "Interface" %>
+                      <span class="label label-info"><span class="glyphicon glyphicon-picture" ></span> Interface </span>
+                      <% when "Security" %>
+                      <span class="label label-info"><span class="glyphicon glyphicon-lock" ></span> Security </span>
+                      <% when "Feedback" %>
+                      <span class="label label-info"><span class="glyphicon glyphicon-user" ></span> Feedback </span>
+                      <% when "Other" %>
+                      <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
+                      <% end %>
+                      <% if report.answers.last == nil %>
+                        <span class="label label-default">On hold</span>
+                      <% else %>
+                          <% case report.answers.last.answer_type
+                          when "FIXED" %>
+                          <span class="label label-success">Fixed</span>
+                          <% when "CANT FIX IT" %>
+                          <span class="label label-danger">Can't fix it</span>
+                          <% when "NO FIX" %>
+                          <span class="label label-warning">No fix yet</span>
+                          <% when 'NOT NEED' %>
+                          <span class="label label-info">Doesn't need fix</span>
+                          <% end %>
+                      <% end %>
+                    </p>
+                    <p>
+                      <strong>Posted by: </strong><%= link_to report.stakeholder.name, report.stakeholder %>
+              </div>
+
+              <div id="Visible" class ="Visible <%= report.priority %>"> <!-- VISIBLE -->
+                <p>
+                  <strong><%= safe_join(report.title.split(" "), "\r\n") %></strong>
+                  <% if report.answers.last != nil %>
                       <% case report.answers.last.answer_type
                       when "FIXED" %>
                       <span class="label label-success">Fixed</span>
@@ -123,32 +143,16 @@
                   <% end %>
                 </p>
                 <p>
-                  <strong>Posted by: </strong><%= link_to report.stakeholder.name, report.stakeholder %>
+                  <%= safe_join(report.content.split(/\W+/).take(10), " ") %> ...
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div id="Visible" class ="Visible <%= report.priority %>"> <!-- VISIBLE -->
-            <p>
-              <strong><%= safe_join(report.title.split(" "), "\r\n") %></strong>
-              <% if report.answers.last != nil %>
-                  <% case report.answers.last.answer_type
-                  when "FIXED" %>
-                  <span class="label label-success">Fixed</span>
-                  <% when "CANT FIX IT" %>
-                  <span class="label label-danger">Can't fix it</span>
-                  <% when "NO FIX" %>
-                  <span class="label label-warning">No fix yet</span>
-                  <% when 'NOT NEED' %>
-                  <span class="label label-info">Doesn't need fix</span>
-                  <% end %>
-              <% end %>
-            </p>
-            <p>
-              <%= safe_join(report.content.split(/\W+/).take(10), " ") %> ...
-            </p>
-          </div>
+          <% end %>
         </div>
       </div>
-      <% end %>
     </div>
+  </div>
+
 
 </div>

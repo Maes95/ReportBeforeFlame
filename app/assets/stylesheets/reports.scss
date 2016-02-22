@@ -7,6 +7,10 @@
   display: none;
 }
 
+#ReportFoot{
+  margin: auto;
+}
+
 .drop-li{
   cursor: pointer;
 
@@ -19,33 +23,33 @@
   white-space: nowrap
 }
 
-
-.form {
-    padding-top: 10px;
-    padding-right: 5px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    //text-align: center;
-    margin-top: 30px;
-    margin-right: 50px;
-    margin-bottom: 10px;
-    margin-left: 30%;
-    color: black;
-
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    border:2px solid #B0B0B0;
-    background:rgba(80,80,80,0.3);
-
-    width: 35%;
-    float: center;
-}
-
-.date{
-  text-align: right;
-  font-size: 12px;
-}
+//
+// .form {
+//     padding-top: 10px;
+//     padding-right: 5px;
+//     padding-bottom: 10px;
+//     padding-left: 30px;
+//     //text-align: center;
+//     margin-top: 30px;
+//     margin-right: 50px;
+//     margin-bottom: 10px;
+//     margin-left: 30%;
+//     color: black;
+//
+//     -webkit-border-radius: 25px;
+//     -moz-border-radius: 25px;
+//     border-radius: 25px;
+//     border:2px solid #B0B0B0;
+//     background:rgba(80,80,80,0.3);
+//
+//     width: 35%;
+//     float: center;
+// }
+//
+// .date{
+//   text-align: right;
+//   font-size: 12px;
+// }
 
 // NUEVO FLIPCARD
 
@@ -66,8 +70,8 @@
 }
 .flip div {
     position: absolute;
-    width: 200px;
-    height: 100px;
+    width: 180px;
+    height: 90px;
     /*border-radius*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -110,8 +114,8 @@
 }
 
 .flip {
-    width: 200px;
-    height: 100px;
+    width: 180px;
+    height: 90px;
     /*border-radius*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

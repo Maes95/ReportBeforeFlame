@@ -1,1 +1,1 @@
-json.extract! @report, :id, :title, :content, :type, :priority, :stakeholder_id, :created_at, :updated_at
+json.extract! @report, :id, :title, :content, :report_type, :priority, :stakeholder_id, :created_at

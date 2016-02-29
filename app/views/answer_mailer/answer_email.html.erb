@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>
+      <%= @sender.name %> <%= @sender.lastname %> answer your report
+      <% case @report.answers.last.answer_type when "FIXED" %>
+      <span class="label label-success">Fixed</span>
+      <% when "CANT FIX IT" %>
+      <span class="label label-danger">Can't fix it</span>
+      <% when "NO FIX" %>
+      <span class="label label-warning">No fix yet</span>
+      <% when 'NOT NEED' %>
+      <span class="label label-info">Doesn't need fix</span>
+      <% end %>
+    </h1>
+    <h3> Your report: <%= @report.title %> </h3>
+    <p>
+      <%= safe_join(@report.content.split(/\W+/).take(20), " ") %> ...
+    </p>
+    <h3><%= @sender.name %> answer :</h3>
+    <p>
+      <%= @answer.content %>
+    </p>
+  </body>
+</html>

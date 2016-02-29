@@ -17,7 +17,7 @@ font-size: 18px;
 
 }
 
-pre {
+pre  > #notice{
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
@@ -40,7 +40,7 @@ div {
 }
 
 #notice {
-  color: green;
+  color: #337ab7;
   text-align: center;
 }
 

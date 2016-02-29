@@ -49,6 +49,8 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  gem 'mailcatcher'
 end
 
 group :development do

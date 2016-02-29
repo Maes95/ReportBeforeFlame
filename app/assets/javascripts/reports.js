@@ -31,12 +31,12 @@ $(document).ready(function(){
   $( "#PanelReport" ).removeClass('panel-default');
 
   if($( "#priority" ).hasClass('label-success')){
-    $( "#PanelReport" ).addClass('panel-green');
+    $( "#PanelReport" ).addClass('panel-success');
   }else{
     if($( "#priority" ).hasClass('label-warning')){
-      $( "#PanelReport" ).addClass('panel-yellow');
+      $( "#PanelReport" ).addClass('panel-warning');
     }else{
-      $( "#PanelReport" ).addClass('panel-red');
+      $( "#PanelReport" ).addClass('panel-danger');
     }
   }
 

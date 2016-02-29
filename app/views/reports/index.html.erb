@@ -107,23 +107,9 @@
                       <% when "Other" %>
                       <span class="label label-info"><span class="glyphicon glyphicon-question-sign" ></span> Other </span>
                       <% end %>
-                      <% if report.answers.last == nil %>
-                        <span class="label label-default">On hold</span>
-                      <% else %>
-                          <% case report.answers.last.answer_type
-                          when "FIXED" %>
-                          <span class="label label-success">Fixed</span>
-                          <% when "CANT FIX IT" %>
-                          <span class="label label-danger">Can't fix it</span>
-                          <% when "NO FIX" %>
-                          <span class="label label-warning">No fix yet</span>
-                          <% when 'NOT NEED' %>
-                          <span class="label label-info">Doesn't need fix</span>
-                          <% end %>
-                      <% end %>
                     </p>
                     <p>
-                      <strong>Posted by: </strong><%= link_to report.stakeholder.name, report.stakeholder %>
+                      <strong>Posted by: </strong><%= report.stakeholder.name %>
               </div>
 
               <div id="Visible" class ="Visible <%= report.priority %>"> <!-- VISIBLE -->

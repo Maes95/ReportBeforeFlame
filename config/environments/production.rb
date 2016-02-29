@@ -79,12 +79,30 @@ Rails.application.configure do
 
   #Mailer
 
-  config.action_mailer.default_url_options = {:host => 'reportbeforeblame.herokuapp.com'}
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => 'your_sendgrid_username',
+  #   :password => 'your_sendgrid_password',
+  #   :domain => 'yourdomain.com',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
+
+  config.action_mailer.default_url_options = { :host => 'reportbeforeblame.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25,
-    :domain  => 'reportbeforeblame.herokuapp.com'
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "reportbeforeblame.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
+
 
 end

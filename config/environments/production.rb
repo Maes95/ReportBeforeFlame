@@ -79,16 +79,16 @@ Rails.application.configure do
 
   #Mailer
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :user_name => "reportbeforeblame@gmail.com",
-    :password => "reportbeforeblame20",
-    :authentication => :plain,
-    :enable_starttls_auto => true,
-    :openssl_verify_mode => 'none'
-  }
+  # ActionMailer::Base.delivery_method = :smtp
+  # ActionMailer::Base.smtp_settings = {
+  #   :address => 'smtp.gmail.com',
+  #   :port => 587,
+  #   :user_name => "reportbeforeblame@gmail.com",
+  #   :password => "reportbeforeblame20",
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true,
+  #   :openssl_verify_mode => 'none'
+  # }
 
   # config.action_mailer.default_url_options = { :host => 'reportbeforeblame.herokuapp.com' }
   # config.action_mailer.delivery_method = :smtp
@@ -104,6 +104,9 @@ Rails.application.configure do
   #   user_name: ENV["GMAIL_USERNAME"],
   #   password: ENV["GMAIL_PASSWORD"]
   # }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "reportbeforeblame.herokuapp.com", :port => 587 }
 
 
 end

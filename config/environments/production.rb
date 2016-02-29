@@ -78,15 +78,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Mailer
-  config.action_mailer.default_url_options = {:host => 'gmail.com'}
+
+  config.action_mailer.default_url_options = {:host => 'reportbeforeblame.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'reportbeforeblame@gmail.com',
-    password:             'reportbeforeblame20',
-    authentication:       'plain',
-    enable_starttls_auto: true
-}
+    :address => "127.0.0.1",
+    :port    => 25,
+    :domain  => 'reportbeforeblame.herokuapp.com'
+  }
+
 end

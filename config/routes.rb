@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
   get 'main/index'
+  get 'guide', to: 'main#guide'
 
   root :to => "main#index"
 

@@ -39,7 +39,7 @@ class AnswersController < ApplicationController
     @answer.stakeholder_id = current_stakeholder.id;
     respond_to do |format|
       if @answer.save
-        AnswerMailer.answer_email(@answer).deliver
+        #AnswerMailer.answer_email(@answer).deliver
         format.html { redirect_to @report, notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else

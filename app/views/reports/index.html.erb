@@ -26,7 +26,11 @@
                 <li class="drop-li" onClick=reportFilter('Other')>Other</li>
               </ul>
             </div>
-
+          </div>
+          <div class="btn-group pull-right" role="group" >
+            <button type="button" id="opened" class="btn btn-success" onClick=reportFilter('false')><i class="fa fa-folder-open fa-fw"></i> Open reports</button>
+            <!--<button type="button" id="closed" class="btn btn-default" onClick=reportFilter('all')>All reports</button>-->
+            <button type="button" id="closed" class="btn btn-danger" onClick=reportFilter('true')><i class="fa fa-folder fa-fw"></i> Closed reports</button>
           </div>
       </div>
 
@@ -44,7 +48,7 @@
           </thead>
           <tbody>
             <% @reports.each do |report| %>
-              <tr class="<%= report.priority %>-s <%= report.report_type %>-s">
+              <tr class="<%= report.priority %>-s <%= report.report_type %>-s <%= report.answers.last != nil and report.answers.last.answer_type != 'NO FIX' %>-s">
                 <td>
                   <%= link_to report.title, report, class:"yellow" %>
                 </td>
@@ -93,7 +97,7 @@
 
         <div id="cards">
           <% @reports.each do |report| %>
-          <div class="scene3D <%= report.priority %>-s <%= report.report_type %>-s">
+          <div class="scene3D <%= report.priority %>-s <%= report.report_type %>-s <%= report.answers.last != nil and report.answers.last.answer_type != 'NO FIX' %>-s">
             <div class="flip" onclick="location.href='reports/<%= report.id %>'">
               <div id="Oculta"><!-- OCULTA -->
                     <p>

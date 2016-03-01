@@ -16,10 +16,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-var state = true; // true -> Cards, false -> List
+var mode = true; // true -> Cards, false -> List
+//var state = "ALL"; // ALL / OPENED / CLOSED
 
 function cardView() {
-  state = true;
+  mode = true;
   $( "#ReportTable" ).hide( "slow", function() {
     $("#cards").children(".scene3D").each(function (){
       $(this).show("medium");
@@ -28,7 +29,7 @@ function cardView() {
 }
 
 function listView() {
-  state = false;
+  mode = false;
   $("#cards").children(".scene3D").each(function (){
     $(this).hide("slow");
   });
@@ -45,7 +46,7 @@ function listView() {
 }
 
 function reportFilter(label){
-  if(state){ // Cardview
+  if(mode){ // Cardview
     $("#cards").children(".scene3D").each(function (){
       if(!$(this).hasClass(label+'-s')){
         $(this).hide("slow");
@@ -64,7 +65,27 @@ function reportFilter(label){
   }
 }
 
+function reportFilterState(label){
+  if(mode){ // Cardview
+    $("#cards").children(".scene3D").each(function (){
+      if(!$(this).hasClass(label+'-s')){
+        $(this).hide("slow");
+      }else{
+        $(this).show("slow");
+      }
+    });
+  }else{ // ListView
+    $('#ReportTable tbody tr').each(function (){
+      if(!$(this).hasClass(label+'-s')){
+        $(this).hide("slow");
+      }else{
+        $(this).show("slow");
+      }
+    });
+  }
+}
 
 $(document).ready(function(){
   $( "#ReportTable" ).hide();
+  mode = true;
 });

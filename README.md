@@ -12,7 +12,7 @@ ReportBeforeBlame runs on:
 * Rails 4.2.0
 * RSpec for unit testing
 
-### Database
+### Database:
 
 * PRODUCTION -> postgres (PostgreSQL) 9.4.0
 * DEVELOPMENT -> SQLite 3.8.2
@@ -26,7 +26,7 @@ ReportBeforeBlame runs on:
 * Boostrapt 
 * [Based on template "SB Admin 2"](http://startbootstrap.com/template-overviews/sb-admin-2/)
 
-## 
+## Installation
 
 To run the app, you will need to have ruby, bundler installed in your machine.
 

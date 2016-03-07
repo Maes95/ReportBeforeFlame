@@ -53,6 +53,19 @@ group :development, :test do
   gem 'sqlite3'
 
   gem 'mailcatcher'
+
+  # TESTING
+
+  gem 'rspec-rails'
+
+  gem 'shoulda'
+
+  gem 'mocha'
+
+  gem 'capybara'
+
+  gem 'factory_girl_rails'
+
 end
 
 group :development do

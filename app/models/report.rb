@@ -4,7 +4,7 @@ class Report < ActiveRecord::Base
 
   validates :content, length: {
     minimum: 15,
-    #maximum: 1400,
+    maximum: 10000,
     tokenizer: lambda { |str| str.split(/\s+/) },
     too_short: "must have at least %{count} words, give us more details",
     too_long: "must have at most %{count} words"

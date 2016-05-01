@@ -8,7 +8,7 @@ ReportBeforeBlame runs on:
 
 ### Back-end stack:
 
-* ruby 2.1.3p242
+* ruby 2.1.3
 * Rails 4.2.0
 * RSpec for unit testing
 

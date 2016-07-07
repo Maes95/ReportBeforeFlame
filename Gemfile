@@ -56,14 +56,15 @@ group :development, :test do
 
   # TESTING
 
+  # Rspec for readable testing
   gem 'rspec-rails'
-
+  # Shoulda for one line asserts
   gem 'shoulda'
-
+  # Mocha for mocking and stubbing
   gem 'mocha'
-
+  # Capybara for View's testing
   gem 'capybara'
-
+  # Factory_girl_rails for create valid instances of your Rails model classes to reuse
   gem 'factory_girl_rails'
 
 end

@@ -59,7 +59,7 @@
           <% end %>
       </div>
       <div class="panel-footer" center>
-        <% if current_stakeholder.id ==  @report.stakeholder_id%>
+        <% if current_stakeholder.id ==  @report.stakeholder_id || current_stakeholder.role == "Developer"%>
           <div class="row" id="ReportFoot">
             <div class="col-md-3"></div>
             <div class="col-md-3">
